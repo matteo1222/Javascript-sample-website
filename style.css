@@ -1,257 +1,290 @@
 @charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Bitter);
-
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Noto+Sans+JP:wght@700&family=Roboto+Condensed:wght@300&display=swap");
 * {
-	font-family: Bitter;
+  font-family: "Merriweather", serif;
 }
 
 html, body {
-	padding: 0px;
-	margin: 0px;
-	box-sizing: border-box;
-	height: 100vh;
-	overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  height: 100vh;
+  overflow: hidden;
 }
 
 body {
-	display: flex;
-	justify-content: center;
-	background: #95A78D;
+  display: flex;
+  justify-content: center;
+  background: #95A78D;
 }
 
 ::-webkit-scrollbar {
-	display: none;
+  display: none;
 }
 
 .container {
-	height: auto;
-	display: block;
-	overflow: scroll;
-	margin: 100px;
-	border-radius: 10px;
-	background: #C8C6AF;
-	box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
-	position: relative;
-	z-index: 3;
+  height: auto;
+  display: block;
+  overflow: scroll;
+  margin: 100px;
+  border-radius: 10px;
+  background: #C8C6AF;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 120;
 }
-
 .container .block {
-	margin: 10px;
-	height: 500px;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	flex-wrap: wrap;
-	color: #794831;
+  margin: 10px;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #794831;
 }
-
 .container .block .imgblock, .container .block .textblock {
-	width: 100%;
-	margin: 0px 50px 0px 50px;
+  width: 100%;
+  margin: 0px 50px 0px 50px;
 }
-
 .container .block .imgblock {
-	margin: 30px 50px 0px 50px;
-	border-radius: 20px;
-	height: 300px;
-	overflow: hidden;
-	position: relative;
+  margin: 30px 50px 0px 50px;
+  border-radius: 20px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
 }
-
 .container .block .textblock h3 {
-	font-size: 20px;
+  font-size: 20px;
 }
-
 .container .block .textblock p {
-	color: #BD897E;
+  color: #BD897E;
 }
-
 .container .block .textblock .cover {
-	position: absolute;
-	top: -60px;
-	width: 100%;
-	height: auto;
+  position: absolute;
+  top: -60px;
+  width: 100%;
+  height: auto;
 }
-
 .container .block .price, .container .block button {
-	width: calc(50% - 150px);
-	margin: 0px 50px 0px 50px;
+  width: calc(50% - 150px);
+  margin: 0px 50px 0px 50px;
 }
-
 .container .block .price {
-	font-weight: bold;
-	font-size: 20px;
+  font-weight: bold;
+  font-size: 20px;
 }
-
 .container .block button {
-	background: #F87666;
-	font-weight: bold;
-	color: #794831;
-	border: none;
-	border-radius: 20px;
-	padding: 10px;
-	width: 120px;
-	position: relative;
-	transition: all 0.1s linear;
-	box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
+  background: #F87666;
+  font-weight: bold;
+  color: #794831;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  width: 120px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: all 0.1s linear;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
 }
-
 .container .block button:hover {
-	cursor: pointer;
-	background: rgba(248, 118, 102, 0.7);
-	transition: all 0.1s linear;
+  cursor: pointer;
+  background: rgba(248, 118, 102, 0.7);
+  transition: all 0.1s linear;
 }
-
+.container .block .addedButton {
+  width: 40px;
+  color: rgba(121, 72, 49, 0);
+}
+.container .block .addedButton:hover {
+  transition: 0.5s;
+  color: rgba(121, 72, 49, 0);
+  background: #F87666;
+  cursor: default;
+}
+.container .block .addedButton:after {
+  content: "✓";
+  animation-name: buttonTickAnimation;
+  animation-duration: 1s;
+  font-size: 20px;
+  color: #794831;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
 .container .circle {
-	width: 200px;
-	height: 250px;
-	background: #F87666;
-	border-radius: 50%;
-	position: absolute;
-	top: -70px;
-	left: -100px;
-	z-index: 2;
-	position: absolute;
+  width: 200px;
+  height: 250px;
+  background: #F87666;
+  border-radius: 50%;
+  position: absolute;
+  top: -70px;
+  left: -100px;
+  z-index: 2;
+  position: absolute;
 }
-
 .container .title {
-	z-index: 100;
-	font-size: 20px;
-	font-weight: bold;
-	color: #794831;
-	position: absolute;
-	margin: 20px;
+  z-index: 100;
+  font-size: 20px;
+  font-weight: bold;
+  color: #794831;
+  position: absolute;
+  margin: 20px;
 }
 
 .left {
-	margin: 70px 30px 70px 70px;
-	width: 550px;
+  margin: 70px 30px 70px 70px;
+  width: 450px;
 }
 
 .right {
-	margin: 70px 70px 70px 30px;
-	width: 250px;
-	position: relative;
+  margin: 70px 70px 70px 30px;
+  width: 250px;
+  position: relative;
 }
-
 .right .blockWrapper {
-	position: absolute;
-	margin: 20px;
-	top: 50px;
-	z-index: 3;
-	padding-top: 10px;
+  position: absolute;
+  margin: 20px;
+  top: 50px;
+  z-index: 3;
+  padding-top: 10px;
 }
-
 .right .blockWrapper .rightBlock {
-	font-weight: bold;
-	color: #794831;
-	height: 80px;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	align-items: start;
-	justify-content: space-around;
-	margin-bottom: 20px;
+  font-weight: bold;
+  color: #794831;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: space-around;
+  margin-bottom: 20px;
 }
-
 .right .blockWrapper .rightBlock .imageBlock {
-	width: 70px;
-	height: 70px;
-	border-radius: 50%;
-	overflow: hidden;
-	box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
-	margin-right: 20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
+  margin-right: 20px;
 }
-
 .right .blockWrapper .rightBlock .imageBlock img {
-	width: 150%;
-	object-fit: cover;
+  width: 150%;
+  object-fit: cover;
 }
-
 .right .blockWrapper .rightBlock h4 {
-	margin-block-start: 0px;
-	margin-block-end: 0px;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
-
 .right .blockWrapper .rightBlock .numberWrapper .addButton, .right .blockWrapper .rightBlock .numberWrapper .number, .right .blockWrapper .rightBlock .numberWrapper .minusButton {
-	display: inline-block;
+  display: inline-block;
 }
-
 .right .blockWrapper .rightBlock .numberWrapper .addButton, .right .blockWrapper .rightBlock .numberWrapper .minusButton {
-	background: rgba(248, 118, 102, 0.5);
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	text-align: center;
-	transition: all 0.1s linear;
+  background: rgba(248, 118, 102, 0.5);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  transition: all 0.1s linear;
 }
-
 .right .blockWrapper .rightBlock .numberWrapper .addButton:hover, .right .blockWrapper .rightBlock .numberWrapper .minusButton:hover {
-	cursor: pointer;
-	background: rgba(248, 118, 102, 0.7);
-	transition: all 0.1s linear;
+  cursor: pointer;
+  background: rgba(248, 118, 102, 0.7);
+  transition: all 0.1s linear;
 }
-
 .right .blockWrapper .rightBlock .numberWrapper .number {
-	margin-left: 12px;
-	margin-right: 12px;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes buttonTickAnimation {
+  0% {
+    color: rgba(121, 72, 49, 0);
+  }
+  60% {
+    color: rgba(121, 72, 49, 0);
+  }
+  100% {
+    color: #794831;
+  }
+}
 @keyframes backgroundAnimation {
-	0% {
-		left: -3000px;
-	}
-
-	100% {
-		left: -5000px;
-	}
+  0% {
+    left: -3000px;
+  }
+  100% {
+    left: -5000px;
+  }
 }
-
 @keyframes backgroundAnimationSecond {
-	0% {
-		left: -1000px;
-	}
-
-	100% {
-		left: -3000px;
-	}
+  0% {
+    left: -1000px;
+  }
+  100% {
+    left: -3000px;
+  }
 }
-
 @keyframes backgroundAnimationThird {
-	0% {
-		left: 1000px;
-	}
-
-	100% {
-		left: -1000px;
-	}
+  0% {
+    left: 1000px;
+  }
+  100% {
+    left: -1000px;
+  }
 }
-
 .wave {
-	width: 5000px;
-	height: 3000px;
-	left: -3000px;
-	top: 300px;
-	border-radius: 70%;
-	background: rgba(248, 118, 102, 0.3);
-	z-index: 1;
-	position: absolute;
-	animation-name: backgroundAnimation;
-	animation-duration: 30s;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
+  width: 5000px;
+  height: 3000px;
+  left: -3000px;
+  top: 300px;
+  border-radius: 70%;
+  background: rgba(248, 118, 102, 0.3);
+  z-index: 1;
+  position: absolute;
+  animation-name: backgroundAnimation;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 .wave.second {
-	animation-name: backgroundAnimationSecond;
-	left: -1000px;
+  animation-name: backgroundAnimationSecond;
+  left: -1000px;
 }
 
 .wave.third {
-	animation-name: backgroundAnimationThird;
-	left: 1000px;
+  animation-name: backgroundAnimationThird;
+  left: 1000px;
+}
+
+@media only screen and (max-width: 800px) {
+  body {
+    display: block;
+  }
+
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    height: 530px;
+    margin-bottom: 30px;
+  }
+
+  html, body {
+    height: 100%;
+    overflow: scroll;
+  }
 }
